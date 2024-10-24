@@ -1,0 +1,42 @@
+version: "3.8" # Use the appropriate version of Docker Compose
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "9005:9005" # Map port 8000 inside the container to port 9002 on the host
+    environment:
+      - DJANGO_SETTINGS_MODULE=inference_service.settings
+      - POSTGRES_DB=amaz_ai_chatbot
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Intern2024
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+
+    # depends_on:
+    #   - db
+    networks:
+      - all
+
+  # db:
+  #   image: postgres:latest
+  #   ports:
+  #     - "5432:5432"
+  #   environment:
+  #     - POSTGRES_DB=amaz_ai_chatbot
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=Intern2024
+  #     - POSTGRES_HOST=localhost
+  #     - POSTGRES_PORT=5432
+  #   networks:
+  #     - all
+
+networks:
+  all:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "true"
