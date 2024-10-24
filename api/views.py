@@ -23,8 +23,10 @@ import logging
 def get_latest_model(request):
     # Get the directory of the current file (views.py)
     current_file_dir = os.path.dirname(__file__)
-    # Navigate to the 'models' folder within the 'api' directory
-    folder_path = os.path.join(current_file_dir, 'nlu-models')
+    # Get the parent folder of the parent folder of the current file
+    parent_of_parent_dir = (os.path.dirname(current_file_dir)) # os.path.dirname
+    # Navigate to the 'rasa-source' folder within the parent of parent directory
+    folder_path = os.path.join(parent_of_parent_dir, 'rasa-source')
 
     try:
 
@@ -80,7 +82,7 @@ def train_model(request):
         
         result = subprocess.run(['rasa', 'train'], cwd=folder_path, capture_output=True, text=True, check=True)
         #result = subprocess.call(['rasa', 'train'], cwd=folder_path, shell=True)
-        print(result,' - ', result.stderr, ' - ', result.args)
+        print(result.stdout,' - ', result.stderr, ' - ', result.args)
         # Capture the output
        # output = result.stdout
         #print(output, ' - ', result.stderr, ' - ', result.args)
@@ -97,7 +99,7 @@ def train_model(request):
     except Exception as e:
         print(e)
         return Response({'error': str(e)}, status=400)
-    return Response({'message': 'train success'}, status=200)
+    return Response({'message': str(result.stdout)}, status=200)
 
 class ConvertData(APIView):
     # Disable authentication and authorization
