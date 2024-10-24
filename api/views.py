@@ -78,8 +78,8 @@ def train_model(request):
         # result = subprocess.run(['rasa', 'train'], cwd=folder_path, capture_output=True, text=True, check=True)
 
         
-        #result = subprocess.run(['rasa', 'train'], cwd=folder_path, capture_output=True, text=True, check=True)
-        result = subprocess.call(['rasa', 'train'], cwd=folder_path, shell=True)
+        result = subprocess.run(['rasa', 'train'], cwd=folder_path, capture_output=True, text=True, check=True)
+        #result = subprocess.call(['rasa', 'train'], cwd=folder_path, shell=True)
         print(result,' - ', result.stderr, ' - ', result.args)
         # Capture the output
        # output = result.stdout

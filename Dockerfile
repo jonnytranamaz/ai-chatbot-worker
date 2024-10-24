@@ -12,8 +12,8 @@ RUN pip install --no-cache-dir rasa
 
 COPY . .
 
-EXPOSE 9005
+EXPOSE 9009
 
 #ENV DATABASE_URL=postgres://postgres:Intern2024@db:5432/amaz_ai_chatbot
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:9005"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:9009"]
