@@ -8,7 +8,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - "9005:9005" # Map port 8000 inside the container to port 9002 on the host
+      - "9009:9009" # Map port 8000 inside the container to port 9002 on the host
     environment:
       - DJANGO_SETTINGS_MODULE=inference_service.settings
       - POSTGRES_DB=amaz_ai_chatbot
