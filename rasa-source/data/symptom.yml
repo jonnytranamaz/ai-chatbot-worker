@@ -1,0 +1,4 @@
+nlu:
+- intent: symptom
+  examples: |
+    - Tôi đang có biểu hiện đau đầu
