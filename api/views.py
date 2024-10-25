@@ -90,7 +90,7 @@ def train_model(request):
         # logger.debug("Output: %s", output)
         # logger.debug("Error: %s", result.stderr)
         # logger.debug("Args: %s", result.args)
-        return Response({'message': str(result.stdout)}, status=200)
+        return Response({'message': 'train success'}, status=200)
     except subprocess.CalledProcessError as e:
         # Handle errors
         output = f"An error occurred: {e}"
