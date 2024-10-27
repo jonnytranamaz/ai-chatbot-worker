@@ -84,7 +84,7 @@ def train_model(request):
         #result = subprocess.call(['rasa', 'train'], cwd=folder_path, shell=True)
         print(result.stdout,' - ', result.stderr, ' - ', result.args)
         # Capture the output
-       # output = result.stdout
+        # output = result.stdout
         #print(output, ' - ', result.stderr, ' - ', result.args)
         
         # logger.debug("Output: %s", output)
@@ -95,10 +95,11 @@ def train_model(request):
         # Handle errors
         output = f"An error occurred: {e}"
         print(output)
+        return Response({'error': 'Error when training models'}, status=500)
     
     except Exception as e:
         print(e)
-        return Response({'error': str(e)}, status=400)
+        return Response({'error': 'Internal Server Error'}, status=500)
     
 
 class ConvertData(APIView):
