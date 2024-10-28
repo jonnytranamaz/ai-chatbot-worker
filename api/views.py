@@ -28,9 +28,14 @@ def get_latest_model(request):
     # Navigate to the 'rasa-source' folder within the parent of parent directory
     folder_path = os.path.join(parent_of_parent_dir, 'rasa-source')
 
+    print('current_file_dir: ',current_file_dir)
+    print('parent_of_parent_dir: ',parent_of_parent_dir)
+    print('folder_path: ',folder_path)
     try:
 
         tar_file_basename, tar_file_path = get_latest_file_in_folder(folder_path)
+        print('tar_file_basename: ',tar_file_basename)
+        print('tar_file_path: ',tar_file_path)
         
         with open(tar_file_path, 'rb') as tar_file:
             tar_buffer = io.BytesIO(tar_file.read())
@@ -265,4 +270,3 @@ class ConvertData(APIView):
                         stories_file.write(f"  - intent: {step['intent']}\n")
                     if 'action' in step:
                         stories_file.write(f"  - action: {step['action']}\n")
-                        
