@@ -65,7 +65,6 @@ def get_latest_file_in_folder(folder_path):
 def train_model(request):
     #print("Training model here")
     try:
-       
         current_file_dir = os.path.dirname(__file__)
         
         # Get the parent folder of the parent folder of the current file
@@ -98,6 +97,11 @@ def train_model(request):
         # logger.debug("Output: %s", output)
         # logger.debug("Error: %s", result.stderr)
         # logger.debug("Args: %s", result.args)
+
+        # Check if the training was successful
+        if result.returncode == 0:
+            # Delete old models
+            delete_old_model(os.path.join(folder_path, 'models'))
         return Response({'message': 'train success'}, status=200)
     except subprocess.CalledProcessError as e:
         # Handle errors
@@ -108,6 +112,27 @@ def train_model(request):
     except Exception as e:
         print(e)
         return Response({'error': 'Internal Server Error'}, status=500)
+
+def delete_old_model(folder_path):
+    try:
+        # Get a list of all files in the folder
+        list_of_files = glob.glob(os.path.join(folder_path, '*'))
+        
+        if not list_of_files:
+            return True
+
+        # Identify the newest file
+        latest_file = max(list_of_files, key=os.path.getctime)
+        
+        # Delete all files except the newest one
+        for file_path in list_of_files:
+            if file_path != latest_file:
+                os.remove(file_path)
+        
+        return True
+    except Exception as e:
+        print(e)
+        return False
 
 class ConvertData(APIView):
     # Disable authentication and authorization
