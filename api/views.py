@@ -183,6 +183,26 @@ class ConvertData(APIView):
             for response in response_list:
                 if response not in domain_data['responses'][intent]:
                     domain_data['responses'][intent].append(response)
+                
+        if 'entities' not in domain_data:
+            domain_data['entities'] = []
+
+        # Thêm intent vào entities
+        if intent not in domain_data['entities']:
+            domain_data['entities'].append(intent)
+        
+        if 'slots' not in domain_data:
+            domain_data['slots'] = {}
+        if intent not in domain_data['slots']:
+            domain_data['slots'][intent] = {
+                'type': 'text',
+                'mappings': [{'type': 'from_entity', 'entity': intent}]
+            }
+        action_name = f'action_{intent}'
+        if 'actions' not in domain_data:
+            domain_data['actions'] = []
+        if action_name not in domain_data['actions']:
+            domain_data['actions'].append(action_name)
 
         with open(os.path.join(folder_path, intent_files['domain']), 'w', encoding='utf-8') as domain_file:
             domain_file.write("version: \"3.1\"\n\n")
@@ -193,7 +213,22 @@ class ConvertData(APIView):
             for intent, response_list in domain_data['responses'].items():
                 domain_file.write(f"  {intent}:\n")
                 for response in response_list:
-                    domain_file.write(f"  - text: \"{response['text']}\"\n") 
+                    domain_file.write(f"  - text: \"{response['text']}\"\n")
+
+            domain_file.write("\nactions:\n")
+            for action in domain_data.get('actions', []):
+                domain_file.write(f"  - {action}\n")
+            domain_file.write("\nentities:\n")
+            for entity in domain_data.get('entities', []):
+                domain_file.write(f"  - {entity}\n")
+            domain_file.write("\nslots:\n")
+            for slot_name, slot_info in domain_data.get('slots', {}).items():
+                domain_file.write(f"  {slot_name}:\n")
+                domain_file.write(f"    type: {slot_info['type']}\n")
+                domain_file.write(f"    mappings:\n")
+                for mapping in slot_info['mappings']:
+                    domain_file.write(f"      - type: {mapping['type']}\n")
+                    domain_file.write(f"        entity: {mapping['entity']}\n") 
 
         # save into stories
         stories_data = []
@@ -230,3 +265,4 @@ class ConvertData(APIView):
                         stories_file.write(f"  - intent: {step['intent']}\n")
                     if 'action' in step:
                         stories_file.write(f"  - action: {step['action']}\n")
+                        

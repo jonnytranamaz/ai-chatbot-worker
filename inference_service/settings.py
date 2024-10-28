@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
     'corsheaders',
-    
+    #'django_rabbitmq',
 ]
 
 MIDDLEWARE = [
@@ -102,6 +102,14 @@ DATABASES = {
 
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
 
+RABBITMQ = {
+    'default': {
+        'host': 'localhost',
+        'port': 5672,
+        'user': 'guest',
+        'password': 'guest',
+    },
+}
 
 # LOGGING = {
 #     'version': 1,

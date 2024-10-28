@@ -28,3 +28,7 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+- story: story_symptom
+  steps:
+  - intent: symptom
+  - action: utter_symptom

@@ -1,26 +1,51 @@
 version: "3.1"
 
 intents:
-  - greet
+  - ask_clinic_location
   - goodbye
+  - greet
+  - mood_great
   - affirm
   - deny
-  - mood_great
   - mood_unhappy
+  - out_of_scope
+  - symptom
+  - ask_symptom
   - bot_challenge
 
-  - ask_symptom
-  - ask_clinic_location
-  - out_of_scope
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+  utter_did_that_help:
+  - text: "Did that help you?"
+  utter_happy:
+  - text: "Great, carry on!"
+  utter_goodbye:
+  - text: "Bye"
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+  utter_symptom:
+  - text: "I recognize your symptom"
+  - text: "OK, tôi sẽ giúp bạn, bạn bị đau gì"
+  utter_out_of_scope:
+  - text: "Sorry, I can't handle that request."
+  utter_please_rephrase:
+  - text: "I'm sorry, I didn't quite understand that because of NLU fallback. Could you rephrase?"
+  utter_return_clinic_location:
+  - text: "The clinic is located at district 7, Ho Chi Minh City"
 
 actions:
   - action_extract_symptom
+  - action_utter_symptom
 
 entities:
   - symptom
   - location
   - speciality
   - clinic
+  - utter_symptom
 
 slots:
   symptom:
@@ -33,42 +58,13 @@ slots:
     mappings:
       - type: from_entity
         entity: location
-
   speciality:
     type: text
     mappings:
       - type: from_entity
         entity: speciality
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-   
   utter_symptom:
-    - text: "I recognize your symptom"
-
-  utter_out_of_scope:
-  - text: Sorry, I can't handle that request.
-  utter_please_rephrase:
-  - text: I'm sorry, I didn't quite understand that because of NLU fallback. Could you rephrase?
-  utter_return_clinic_location:
-  - text: "The clinic is located at district 7, Ho Chi Minh City"
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+    type: text
+    mappings:
+      - type: from_entity
+        entity: utter_symptom
