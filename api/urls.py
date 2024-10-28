@@ -10,6 +10,7 @@ urlpatterns = [
     path('models/get-latest-model/', views.get_latest_model, name='get-latest-model'),
     path('models/train-model/', views.train_model, name='train-model'),
     path('convertdata/', ConvertData.as_view(), name='convertdata'),
+    path('models/replace-model-of-rasa/', views.replace_model_of_rasa , name='replace-model-of-rasa'),
 ]
 
 

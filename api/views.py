@@ -1,4 +1,7 @@
+import json
 from django.shortcuts import render
+import httpx
+import requests
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import HttpResponse
@@ -12,7 +15,7 @@ import subprocess
 from rest_framework import status, permissions
 from .serializer import ChatRequestSerializer
 from .train_intent import get_intent_from_question
-from .constants import intent_files
+from .constants import *
 import yaml
 import logging
 
@@ -60,7 +63,7 @@ def get_latest_file_in_folder(folder_path):
 
 @api_view(['GET'])
 def train_model(request):
-    print("Training model here")
+    #print("Training model here")
     try:
        
         current_file_dir = os.path.dirname(__file__)
@@ -105,7 +108,6 @@ def train_model(request):
     except Exception as e:
         print(e)
         return Response({'error': 'Internal Server Error'}, status=500)
-    
 
 class ConvertData(APIView):
     # Disable authentication and authorization
@@ -270,3 +272,51 @@ class ConvertData(APIView):
                         stories_file.write(f"  - intent: {step['intent']}\n")
                     if 'action' in step:
                         stories_file.write(f"  - action: {step['action']}\n")
+
+@api_view(['GET'])
+def replace_model_of_rasa(request):
+    try:
+        payload = {
+            'model_server': {
+                "url": latest_model_url,
+                "params": { },
+                "headers": { },
+                "basic_auth": { },
+                "token": "secret",
+                "token_name": "access-token",
+                "wait_time_between_pulls": 100
+            }
+        }
+        headers = {
+            "Content-Type":"application/json",
+        }
+     
+        result = requests.put(
+            change_model_url,
+            data=json.dumps(payload),
+            headers=headers
+        )
+
+        if (result and 200 <= result.status_code and result.status_code < 300):
+            msg = 'replace model success'
+        else:
+            msg = 'replace model failed'
+
+        return Response({'message': msg}, status=200)
+    except Exception as e:
+        print(e)
+        return Response({'error': 'Internal Server Error'}, status=500)
+
+@staticmethod
+async def call_api_change_model(url, data):
+        try:
+            print('url: ',url)
+            async with httpx.AsyncClient() as client:
+                response = await client.put(url, json=data)
+                if (200 <= response.status_code < 300):
+                    return True
+                return False
+        except Exception as e:
+            print(f'Error when calling to rasa: {e}')
+            return False
+        
