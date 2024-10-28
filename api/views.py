@@ -26,7 +26,7 @@ def get_latest_model(request):
     # Get the parent folder of the parent folder of the current file
     parent_of_parent_dir = (os.path.dirname(current_file_dir)) # os.path.dirname
     # Navigate to the 'rasa-source' folder within the parent of parent directory
-    folder_path = os.path.join(parent_of_parent_dir, 'rasa-source')
+    folder_path = os.path.join(parent_of_parent_dir, 'rasa-source', 'models')
 
     print('current_file_dir: ',current_file_dir)
     print('parent_of_parent_dir: ',parent_of_parent_dir)
@@ -34,9 +34,9 @@ def get_latest_model(request):
     try:
 
         tar_file_basename, tar_file_path = get_latest_file_in_folder(folder_path)
-        print('tar_file_basename: ',tar_file_basename)
+        #print('tar_file_basename: ',tar_file_basename)
         print('tar_file_path: ',tar_file_path)
-        
+
         with open(tar_file_path, 'rb') as tar_file:
             tar_buffer = io.BytesIO(tar_file.read())
             tar_file.seek(0)
@@ -53,9 +53,9 @@ def get_latest_model(request):
         return Response({'error': str(e)}, status=400)
 
 def get_latest_file_in_folder(folder_path):
-    
     list_of_files = glob.glob(os.path.join(folder_path, '*'))
     latest_file = max(list_of_files, key=os.path.getctime)
+    #print('latest_file: ',latest_file)
     return os.path.basename(latest_file), latest_file
 
 @api_view(['GET'])
