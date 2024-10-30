@@ -140,18 +140,32 @@ class ConvertData(APIView):
     permission_classes = []
 
     def post(self, request):
-        serializer = ChatRequestSerializer(data=request.data)
-        if serializer.is_valid():
-            question = serializer.validated_data['question']
-            answer = serializer.validated_data['answer']
-
-            intents = self.get_intents_from_api()
-
-            self.process_data(intents, question, answer)
-
+        print('request.data 1: ',request.data)#.get('data')
+        data = request.data#.get('data')
+        if isinstance(data, list):
+            for item in data:
+                question = item.get('question')
+                answer = item.get('answer')
+                if question and answer:
+                    intents = self.get_intents_from_api()
+                    self.process_data(intents, question, answer)
+                else:
+                    return Response({"message": "Dữ liệu bị thiếu"}, status=status.HTTP_400_BAD_REQUEST)
             return Response({"message": "Dữ liệu đã được thêm vào file thành công"}, status=status.HTTP_201_CREATED)
+        else:
+            return Response({"message": "Dữ liệu không hợp lệ, phải là mảng"}, status=status.HTTP_400_BAD_REQUEST)
+        # serializer = ChatRequestSerializer(data=request.data)
+        # if serializer.is_valid():
+        #     question = serializer.validated_data['question']
+        #     answer = serializer.validated_data['answer']
 
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        #     intents = self.get_intents_from_api()
+
+        #     self.process_data(intents, question, answer)
+
+        #     return Response({"message": "Dữ liệu đã được thêm vào file thành công"}, status=status.HTTP_201_CREATED)
+
+        # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get_intents_from_api(self):
         return []
@@ -345,3 +359,45 @@ async def call_api_change_model(url, data):
             print(f'Error when calling to rasa: {e}')
             return False
         
+@api_view(['POST'])
+def convert_data_and_train_and_replace_model(request):
+    try:
+        headers = {
+            "Content-Type":"application/json",
+        }
+
+        print('request.data 2: ',request.data)
+        data = request.data.get('data')
+        print('data: ',data)
+        convert_data = requests.post(
+            inference_url + '/api/v1/convertdata/', 
+            data=json.dumps(data, ensure_ascii=False).encode('utf-8'),
+            headers=headers)
+        
+        if (convert_data and 200 <= convert_data.status_code and convert_data.status_code < 300):
+
+            train = requests.get(inference_url + '/api/v1/models/train-model/')
+
+            if (train and 200 <= train.status_code and train.status_code < 300):
+
+                replace_model = requests.get(inference_url + '/api/v1/models/replace-model-of-rasa/')
+
+                if (replace_model and 200 <= replace_model.status_code and replace_model.status_code < 300):
+                    msg = 'convert data, train and replace model success'
+                    status = 200
+
+                else:
+                    msg = 'replace model failed'
+                    status = 500
+            else:
+                msg = 'train failed'
+                status = 500
+        else:
+            msg = 'convert data failed'
+            status = 400
+        
+        return Response({'message': msg}, status=status)
+
+    except Exception as e:
+        print(e)
+        return Response({'error': 'Internal Server Error'}, status=500)

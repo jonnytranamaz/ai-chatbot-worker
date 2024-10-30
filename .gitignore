@@ -164,3 +164,4 @@ cython_debug/
 /rasa-source/.rasa/
 /rasa-source/models/
 consume_message_queue.py
+.vscode/
