@@ -1,20 +1,20 @@
 version: "3.1"
 
 intents:
-  - mood_unhappy
-  - clinic
-  - ask_clinic_location
+  - goodbye
   - greet
+  - clinic
+  - doctor
+  - hospital
+  - mood_unhappy
+  - bot_challenge
   - out_of_scope
   - symptom
-  - doctor
   - affirm
+  - ask_clinic_location
+  - ask_symptom
   - deny
   - mood_great
-  - ask_symptom
-  - goodbye
-  - hospital
-  - bot_challenge
 
 responses:
   utter_greet:

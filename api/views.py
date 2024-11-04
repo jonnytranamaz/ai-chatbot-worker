@@ -13,7 +13,9 @@ import os
 import glob
 import subprocess
 from rest_framework import status, permissions
-from .serializer import ChatRequestSerializer
+
+from api.models import TrainingMessage
+
 from .train_intent import get_intent_from_question
 from .constants import *
 import yaml
@@ -140,7 +142,7 @@ class ConvertData(APIView):
     permission_classes = []
 
     def post(self, request):
-        print('request.data 1: ',request.data)#.get('data')
+        #print('request.data 1: ',request.data)#.get('data')
         data = request.data#.get('data')
         if isinstance(data, list):
             for item in data:
@@ -148,6 +150,8 @@ class ConvertData(APIView):
                 answer = item.get('answer')
                 if question and answer:
                     intents = self.get_intents_from_api()
+                    new_training_message = TrainingMessage(request=question, response=answer)
+                    new_training_message.save()
                     self.process_data(intents, question, answer)
                 else:
                     return Response({"message": "Dữ liệu bị thiếu"}, status=status.HTTP_400_BAD_REQUEST)
