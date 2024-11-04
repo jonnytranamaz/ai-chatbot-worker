@@ -32,6 +32,7 @@ stories:
   steps:
   - intent: symptom
   - action: utter_symptom
+
 - story: story_hospital
   steps:
   - intent: hospital

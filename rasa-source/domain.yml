@@ -1,19 +1,20 @@
 version: "3.1"
 
 intents:
-  - ask_clinic_location
-  - bot_challenge
-  - greet
-  - mood_great
-  - ask_symptom
-
   - mood_unhappy
-  - goodbye
-
+  - clinic
+  - ask_clinic_location
+  - greet
   - out_of_scope
+  - symptom
+  - doctor
   - affirm
   - deny
-  - symptom
+  - mood_great
+  - ask_symptom
+  - goodbye
+  - hospital
+  - bot_challenge
 
 responses:
   utter_greet:
@@ -37,12 +38,19 @@ responses:
   - text: "I'm sorry, I didn't quite understand that because of NLU fallback. Could you rephrase?"
   utter_return_clinic_location:
   - text: "The clinic is located at district 7, Ho Chi Minh City"
-
+  utter_hospital:
+  - text: "bệnh viện"
+  utter_doctor:
+  - text: "bác sĩ"
+  utter_clinic:
+  - text: "phòng khám"
 
 actions:
   - action_extract_symptom
   - action_utter_symptom
-
+  - action_utter_hospital
+  - action_utter_doctor
+  - action_utter_clinic
 
 entities:
   - symptom
@@ -50,7 +58,9 @@ entities:
   - speciality
   - clinic
   - utter_symptom
-
+  - utter_hospital
+  - utter_doctor
+  - utter_clinic
 
 slots:
   symptom:
@@ -73,4 +83,18 @@ slots:
     mappings:
       - type: from_entity
         entity: utter_symptom
- 
+  utter_hospital:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: utter_hospital
+  utter_doctor:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: utter_doctor
+  utter_clinic:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: utter_clinic

@@ -366,9 +366,9 @@ def convert_data_and_train_and_replace_model(request):
             "Content-Type":"application/json",
         }
 
-        print('request.data 2: ',request.data)
+        #print('request.data 2: ',request.data)
         data = request.data.get('data')
-        print('data: ',data)
+        #print('data: ',data)
         convert_data = requests.post(
             inference_url + '/api/v1/convertdata/', 
             data=json.dumps(data, ensure_ascii=False).encode('utf-8'),
@@ -401,3 +401,4 @@ def convert_data_and_train_and_replace_model(request):
     except Exception as e:
         print(e)
         return Response({'error': 'Internal Server Error'}, status=500)
+

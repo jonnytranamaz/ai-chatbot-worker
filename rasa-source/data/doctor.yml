@@ -1,0 +1,4 @@
+nlu:
+- intent: doctor
+  examples: |
+    - bác sĩ
