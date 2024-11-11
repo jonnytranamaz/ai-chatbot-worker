@@ -35,7 +35,7 @@ responses:
   utter_out_of_scope:
   - text: "Sorry, I can't handle that request."
   utter_please_rephrase:
-  - text: "Sorry, I can't handle that request." # "I'm sorry, I didn't quite understand that because of NLU fallback. Could you rephrase?"
+  - text: "Sorry, I can't handle that request."
   utter_booking:
   - text: "Hết cứu"
   utter_symptom_advice:
@@ -53,28 +53,3 @@ responses:
     
   utter_meal_plan:
     - text: "Lịch ăn uống hàng ngày như sau ..."
-
-# actions:
-#   - action_extract_symptom
-
-# entities:
-#   - symptom
-#   - location
-#   - speciality
-
-# slots:
-#   symptom:
-#     type: text
-#     mappings:
-#       - type: from_entity
-#         entity: symptom
-#   location:
-#     type: text
-#     mappings:
-#       - type: from_entity
-#         entity: location
-#   speciality:
-#     type: text
-#     mappings:
-#       - type: from_entity
-#         entity: speciality
