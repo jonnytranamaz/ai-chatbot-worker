@@ -272,14 +272,14 @@ class ConvertData(APIView):
             domain_file.write("\nentities:\n")
             for entity in domain_data.get('entities', []):
                 domain_file.write(f"  - {entity}\n")
-            domain_file.write("\nslots:\n")
-            for slot_name, slot_info in domain_data.get('slots', {}).items():
-                domain_file.write(f"  {slot_name}:\n")
-                domain_file.write(f"    type: {slot_info['type']}\n")
-                domain_file.write(f"    mappings:\n")
-                for mapping in slot_info['mappings']:
-                    domain_file.write(f"      - type: {mapping['type']}\n")
-                    domain_file.write(f"        entity: {mapping['entity']}\n") 
+            # domain_file.write("\nslots:\n")
+            # for slot_name, slot_info in domain_data.get('slots', {}).items():
+            #     domain_file.write(f"  {slot_name}:\n")
+            #     domain_file.write(f"    type: {slot_info['type']}\n")
+            #     domain_file.write(f"    mappings:\n")
+            #     for mapping in slot_info['mappings']:
+            #         domain_file.write(f"      - type: {mapping['type']}\n")
+            #         domain_file.write(f"        entity: {mapping['entity']}\n") 
 
         # save into stories
         stories_data = []

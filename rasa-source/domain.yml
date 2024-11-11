@@ -58,8 +58,7 @@ responses:
     - text: "Tốt! Bạn nên bổ sung thực phẩm như thịt nạc, trứng, đậu hũ, và các loại hạt. Ngoài ra, bạn cần ăn đủ bữa để cung cấp năng lượng cho cơ thể. Bạn có cần tôi giúp lập lịch ăn uống không?"
     
   utter_meal_plan:
-    - text: |
-        "Lịch ăn uống hàng ngày như sau ..."
+    - text: "Lịch ăn uống hàng ngày như sau ..."
 
 actions:
   - action_extract_symptom
@@ -69,19 +68,19 @@ entities:
   - location
   - speciality
 
-slots:
-  symptom:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: symptom
-  location:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: location
-  speciality:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: speciality
+# slots:
+#   symptom:
+#     type: text
+#     mappings:
+#       - type: from_entity
+#         entity: symptom
+#   location:
+#     type: text
+#     mappings:
+#       - type: from_entity
+#         entity: location
+#   speciality:
+#     type: text
+#     mappings:
+#       - type: from_entity
+#         entity: speciality
