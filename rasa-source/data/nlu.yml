@@ -106,3 +106,30 @@ nlu:
 - intent: ask_clinic_location
   examples: |
     - i want to go to the [dentistry clinic](clinic)
+  
+- intent: inform_symptom
+  examples: |
+    - Tôi thường bị đau cổ và vai sau khi làm việc nặng
+    - Tôi cảm thấy tay và chân hay tê cóng, đặc biệt vào buổi tối
+
+- intent: ask_for_advice
+  examples: |
+    - Liệu đây có phải triệu chứng của bệnh thoái hóa đốt sống cổ không?
+    - Tôi nên làm gì tiếp theo?
+
+- intent: ask_for_diet
+  examples: |
+    - Tôi đang tập thể hình và muốn biết nên ăn uống như thế nào
+
+- intent: inform_goal
+  examples: |
+    - Tôi muốn tăng cơ
+
+- intent: ask_for_food
+  examples: |
+    - Tôi muốn biết các thực phẩm cụ thể
+
+- intent: ask_for_meal_plan
+  examples: |
+    - Có, tôi muốn biết lịch ăn uống
+    - Tôi cần một kế hoạch ăn uống

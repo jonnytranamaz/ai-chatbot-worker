@@ -31,4 +31,3 @@ rules:
   steps:
     - intent: ask_clinic_location
     - action: utter_return_clinic_location
-    

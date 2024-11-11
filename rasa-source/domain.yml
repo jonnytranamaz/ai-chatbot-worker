@@ -12,6 +12,12 @@ intents:
   - mood_great
   - deny
   - affirm
+  - inform_symptom
+  - ask_for_advice
+  - ask_for_diet
+  - inform_goal
+  - ask_for_food
+  - ask_for_meal_plan
 
 responses:
   utter_greet:
@@ -37,6 +43,66 @@ responses:
   - text: "The clinic is located at district 7, Ho Chi Minh City"
   utter_booking:
   - text: "Hết cứu"
+  utter_symptom_advice:
+    - text: "Đúng vậy, triệu chứng của bạn có thể liên quan đến bệnh thoái hóa đốt sống cổ. Bạn còn gặp bất kỳ vấn đề sức khỏe hay triệu chứng khác không?"
+    
+  utter_tingling_advice:
+    - text: "Cảm ơn bạn đã chia sẻ thông tin. Để chắc chắn, bạn nên thăm khám và tư vấn với bác sĩ chuyên khoa. Bạn có thể sử dụng ứng dụng Amaz để tư vấn và đặt lịch online."
+  utter_ask_for_diet:
+    - text: "Bạn cần cung cấp thông tin về mục tiêu tập luyện của mình (tăng cơ, giảm mỡ) và thói quen ăn uống hiện tại."
+    
+  utter_goal_response:
+    - text: "Để tăng cơ hiệu quả, bạn nên tăng lượng protein trong khẩu phần ăn và duy trì các bữa phụ giàu dinh dưỡng. Bạn có muốn tôi đề xuất một kế hoạch ăn uống chi tiết cho việc tập luyện không?"
+    
+  utter_food_suggestion:
+    - text: "Tốt! Bạn nên bổ sung thực phẩm như thịt nạc, trứng, đậu hũ, và các loại hạt. Ngoài ra, bạn cần ăn đủ bữa để cung cấp năng lượng cho cơ thể. Bạn có cần tôi giúp lập lịch ăn uống không?"
+    
+  utter_meal_plan:
+    - text: |
+        "Lịch ăn uống hàng ngày
+
+        Bữa sáng  
+        Thời gian: 7:00 - 8:00  
+        Thực phẩm:  
+        - 1-2 quả trứng (có thể chiên hoặc luộc)  
+        - 1 lát bánh mì nguyên cám hoặc ngũ cốc  
+        - 1 quả trái cây (chuối, táo, hoặc bưởi)  
+
+        Bữa phụ giữa sáng
+        Thời gian: 10:00  
+        Thực phẩm:  
+        - 1 nắm hạt (hạt điều, hạt óc chó hoặc hạt hướng dương)  
+        - 1 ly sữa chua hoặc sữa tươi  
+
+        Bữa trưa  
+        Thời gian: 12:00 - 13:00  
+        Thực phẩm:  
+        - 100-150g thịt nạc (gà, heo, hoặc bò)  
+        - Rau xanh (xà lách, cải, hoặc các loại rau khác)  
+        - 1 bát cơm gạo lứt hoặc quinoa  
+
+        Bữa phụ chiều  
+        Thời gian: 15:00  
+        Thực phẩm:  
+        - 1 miếng bánh quy nguyên cám hoặc thanh năng lượng  
+        - 1 ly nước trái cây tự nhiên  
+
+        Bữa tối 
+        Thời gian: 18:00 - 19:00  
+        Thực phẩm:  
+        - 100-150g đậu hũ hoặc cá  
+        - Rau luộc hoặc xào  
+        - 1 bát nhỏ cơm hoặc khoai lang  
+
+        Bữa phụ tối (nếu cần) 
+        Thời gian: 20:00  
+        Thực phẩm:  
+        - 1 ly sữa ấm hoặc trà thảo mộc  
+
+        Lưu ý:
+        - Uống đủ nước (2-3 lít/ngày).  
+        - Cố gắng ăn đúng giờ và tránh ăn khuya.  
+        - Điều chỉnh khẩu phần ăn theo nhu cầu và hoạt động của bạn."
 
 actions:
   - action_extract_symptom

@@ -28,3 +28,29 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+- story: user reports symptoms and asks for advice
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: inform_symptom
+    - action: utter_symptom_advice
+    - intent: inform_symptom
+    - action: utter_tingling_advice
+    - intent: goodbye
+    - action: utter_goodbye
+- story: user wants diet advice for bodybuilding
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: ask_for_diet
+    - action: utter_ask_for_diet
+    - intent: inform_goal
+    - action: utter_goal_response
+    - intent: ask_for_meal_plan
+    - action: utter_food_suggestion
+    - intent: ask_for_meal_plan
+    - action: utter_meal_plan
+    - intent: goodbye
+    - action: utter_goodbye
+
