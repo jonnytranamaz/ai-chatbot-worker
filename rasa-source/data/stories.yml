@@ -53,4 +53,3 @@ stories:
     - action: utter_meal_plan
     - intent: goodbye
     - action: utter_goodbye
-

@@ -59,50 +59,7 @@ responses:
     
   utter_meal_plan:
     - text: |
-        "Lịch ăn uống hàng ngày
-
-        Bữa sáng  
-        Thời gian: 7:00 - 8:00  
-        Thực phẩm:  
-        - 1-2 quả trứng (có thể chiên hoặc luộc)  
-        - 1 lát bánh mì nguyên cám hoặc ngũ cốc  
-        - 1 quả trái cây (chuối, táo, hoặc bưởi)  
-
-        Bữa phụ giữa sáng
-        Thời gian: 10:00  
-        Thực phẩm:  
-        - 1 nắm hạt (hạt điều, hạt óc chó hoặc hạt hướng dương)  
-        - 1 ly sữa chua hoặc sữa tươi  
-
-        Bữa trưa  
-        Thời gian: 12:00 - 13:00  
-        Thực phẩm:  
-        - 100-150g thịt nạc (gà, heo, hoặc bò)  
-        - Rau xanh (xà lách, cải, hoặc các loại rau khác)  
-        - 1 bát cơm gạo lứt hoặc quinoa  
-
-        Bữa phụ chiều  
-        Thời gian: 15:00  
-        Thực phẩm:  
-        - 1 miếng bánh quy nguyên cám hoặc thanh năng lượng  
-        - 1 ly nước trái cây tự nhiên  
-
-        Bữa tối 
-        Thời gian: 18:00 - 19:00  
-        Thực phẩm:  
-        - 100-150g đậu hũ hoặc cá  
-        - Rau luộc hoặc xào  
-        - 1 bát nhỏ cơm hoặc khoai lang  
-
-        Bữa phụ tối (nếu cần) 
-        Thời gian: 20:00  
-        Thực phẩm:  
-        - 1 ly sữa ấm hoặc trà thảo mộc  
-
-        Lưu ý:
-        - Uống đủ nước (2-3 lít/ngày).  
-        - Cố gắng ăn đúng giờ và tránh ăn khuya.  
-        - Điều chỉnh khẩu phần ăn theo nhu cầu và hoạt động của bạn."
+        "Lịch ăn uống hàng ngày như sau ..."
 
 actions:
   - action_extract_symptom

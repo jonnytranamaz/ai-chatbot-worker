@@ -5,7 +5,7 @@ intent_files = {
             'hospital': 'data/hospital.yml',
             'symptom': 'data/symptom.yml',
             'consultant': 'data/consultant.yml',
-            'patient': '/data/patient.yml',
+            'patient': 'data/patient.yml',
             'health': 'data/health.yml',
             'domain': 'domain.yml',
             'stories': 'data/stories.yml',
