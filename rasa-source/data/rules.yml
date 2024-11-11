@@ -12,11 +12,6 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: ask symptom
-  steps:
-    - intent: ask_symptom
-    - action: action_extract_symptom #utter_symptom
-
 - rule: out-of-scope
   steps:
   - intent: out_of_scope
@@ -26,8 +21,3 @@ rules:
   steps:
   - intent: nlu_fallback
   - action: utter_please_rephrase
-
-- rule: ask clinic location
-  steps:
-    - intent: ask_clinic_location
-    - action: utter_return_clinic_location

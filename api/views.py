@@ -266,12 +266,12 @@ class ConvertData(APIView):
                 for response in response_list:
                     domain_file.write(f"  - text: \"{response['text']}\"\n")
 
-            domain_file.write("\nactions:\n")
-            for action in domain_data.get('actions', []):
-                domain_file.write(f"  - {action}\n")
-            domain_file.write("\nentities:\n")
-            for entity in domain_data.get('entities', []):
-                domain_file.write(f"  - {entity}\n")
+            # domain_file.write("\nactions:\n")
+            # for action in domain_data.get('actions', []):
+            #     domain_file.write(f"  - {action}\n")
+            # domain_file.write("\nentities:\n")
+            # for entity in domain_data.get('entities', []):
+            #     domain_file.write(f"  - {entity}\n")
             # domain_file.write("\nslots:\n")
             # for slot_name, slot_info in domain_data.get('slots', {}).items():
             #     domain_file.write(f"  {slot_name}:\n")
