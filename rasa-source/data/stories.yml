@@ -49,9 +49,9 @@ stories:
     - intent: inform_goal
     - action: utter_inform_goal
     - intent: ask_for_meal_plan
-    - action: utter_for_meal_plan
+    - action: utter_ask_for_meal_plan
     - intent: ask_for_meal_plan_1
-    - action: utter_for_meal_plan_1
+    - action: utter_ask_for_meal_plan_1
     - intent: goodbye
     - action: utter_goodbye
 

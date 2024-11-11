@@ -120,8 +120,7 @@ nlu:
 
 - intent: ask_for_meal_plan
   examples: |
-    - Có, tôi muốn biết lịch ăn uống
-    - Tôi cần một kế hoạch ăn uống
+    - Tôi muốn biết các thực phẩm cụ thể
   
 - intent: ask_for_meal_plan_1
   examples: |
