@@ -1,4 +1,0 @@
-nlu:
-- intent: hospital
-  examples: |
-    - bệnh viện

@@ -1,4 +1,0 @@
-nlu:
-- intent: clinic
-  examples: |
-    - phòng khám
