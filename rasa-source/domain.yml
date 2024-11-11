@@ -15,6 +15,9 @@ intents:
   - inform_goal
   - ask_for_food
   - ask_for_meal_plan
+  - ask_for_meal_plan_1
+  - ask_about_amaz
+  - ask_how_to_book
 
 responses:
   utter_greet:
@@ -53,3 +56,24 @@ responses:
     
   utter_meal_plan:
     - text: "Lịch ăn uống hàng ngày như sau ..."
+  
+  utter_inform_goal:
+    - text: "Để tăng cơ hiệu quả, bạn nên tăng lượng protein trong khẩu phần ăn và duy trì các bữa phụ giàu dinh dưỡng. Bạn có muốn tôi đề xuất một kế hoạch ăn uống chi tiết cho việc tập luyện không?"
+  
+  utter_ask_for_meal_plan:
+  - text: "Tốt! Bạn nên bổ sung thực phẩm như thịt nạc, trứng, đậu hũ, và các loại hạt. Ngoài ra, bạn cần ăn đủ bữa để cung cấp năng lượng cho cơ thể. Bạn có cần tôi giúp lập lịch ăn uống không?"
+  
+  utter_for_meal_plan:
+    - text: "Tốt! Bạn nên bổ sung thực phẩm như thịt nạc, trứng, đậu hũ, và các loại hạt. Ngoài ra, bạn cần ăn đủ bữa để cung cấp năng lượng cho cơ thể. Bạn có cần tôi giúp lập lịch ăn uống không?"
+  
+  utter_ask_for_meal_plan_1:
+    - text: "Lịch ăn uống hàng ngày như sau ..."
+
+  utter_for_meal_plan_1:
+    - text: "Lịch ăn uống hàng ngày như sau ..."
+
+  utter_ask_about_amaz:
+  - text: "Amaz là một công ty công nghệ."
+    
+  utter_how_to_book:
+    - text: "Bạn hãy tải app và đặt lịch."

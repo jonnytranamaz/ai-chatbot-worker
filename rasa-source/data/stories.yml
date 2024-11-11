@@ -39,6 +39,7 @@ stories:
     - action: utter_tingling_advice
     - intent: goodbye
     - action: utter_goodbye
+
 - story: user wants diet advice for bodybuilding
   steps:
     - intent: greet
@@ -46,11 +47,21 @@ stories:
     - intent: ask_for_diet
     - action: utter_ask_for_diet
     - intent: inform_goal
-    - action: utter_goal_response
+    - action: utter_inform_goal
     - intent: ask_for_meal_plan
-    - action: utter_food_suggestion
-    - intent: ask_for_meal_plan
-    - action: utter_meal_plan
+    - action: utter_for_meal_plan
+    - intent: ask_for_meal_plan_1
+    - action: utter_for_meal_plan_1
     - intent: goodbye
     - action: utter_goodbye
-    
+
+- story: user asks about Amaz
+  steps:
+    - intent: ask_about_amaz
+    - action: utter_ask_about_amaz
+
+- story: user asks booking Amaz
+  steps:
+    - intent: ask_how_to_book
+    - action: utter_how_to_book
+

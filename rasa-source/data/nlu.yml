@@ -122,3 +122,15 @@ nlu:
   examples: |
     - Có, tôi muốn biết lịch ăn uống
     - Tôi cần một kế hoạch ăn uống
+  
+- intent: ask_for_meal_plan_1
+  examples: |
+    - Có
+
+- intent: ask_about_amaz
+  examples: |
+    - Amaz là gì?
+
+- intent: ask_how_to_book
+  examples: |
+    - Làm thế nào để đặt lịch trên ứng dụng Amaz?
