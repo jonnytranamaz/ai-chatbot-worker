@@ -32,7 +32,7 @@ responses:
   utter_out_of_scope:
   - text: "Sorry, I can't handle that request."
   utter_please_rephrase:
-  - text: "I'm sorry, I didn't quite understand that because of NLU fallback. Could you rephrase?"
+  - text: "Sorry, I can't handle that request." # "I'm sorry, I didn't quite understand that because of NLU fallback. Could you rephrase?"
   utter_return_clinic_location:
   - text: "The clinic is located at district 7, Ho Chi Minh City"
   utter_booking:
