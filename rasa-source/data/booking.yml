@@ -1,0 +1,4 @@
+nlu:
+- intent: booking
+  examples: |
+    - Tôi đang cần tư vấn online

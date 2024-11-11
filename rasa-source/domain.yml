@@ -1,20 +1,21 @@
 version: "3.1"
 
 intents:
-  - goodbye
+  - bot_challenge
+  - symptom
+  - mood_unhappy
+  - hospital
+  - out_of_scope
   - greet
   - clinic
-  - doctor
-  - hospital
-  - mood_unhappy
-  - bot_challenge
-  - out_of_scope
-  - symptom
-  - affirm
   - ask_clinic_location
+  - goodbye
+  - booking
   - ask_symptom
-  - deny
   - mood_great
+  - deny
+  - doctor
+  - affirm
 
 responses:
   utter_greet:
@@ -44,6 +45,8 @@ responses:
   - text: "bác sĩ"
   utter_clinic:
   - text: "phòng khám"
+  utter_booking:
+  - text: "Hết cứu"
 
 actions:
   - action_extract_symptom
@@ -51,6 +54,7 @@ actions:
   - action_utter_hospital
   - action_utter_doctor
   - action_utter_clinic
+  - action_utter_booking
 
 entities:
   - symptom
@@ -61,6 +65,7 @@ entities:
   - utter_hospital
   - utter_doctor
   - utter_clinic
+  - utter_booking
 
 slots:
   symptom:
@@ -98,3 +103,8 @@ slots:
     mappings:
       - type: from_entity
         entity: utter_clinic
+  utter_booking:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: utter_booking

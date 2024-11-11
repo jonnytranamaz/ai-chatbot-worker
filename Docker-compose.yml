@@ -14,13 +14,13 @@ services:
       - POSTGRES_DB=amaz_ai_chatbot
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=Intern2024
-      - POSTGRES_HOST=db
+      - POSTGRES_HOST=192.168.1.45 #db
       - POSTGRES_PORT=5432
 
     # depends_on:
     #   - db
     networks:
-      - all
+      - shared_network
 
   # db:
   #   image: postgres:latest
@@ -36,6 +36,8 @@ services:
   #     - all
 
 networks:
+  shared_network:
+    external: true
   all:
     driver: bridge
     driver_opts:

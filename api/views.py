@@ -20,6 +20,7 @@ from .train_intent import get_intent_from_question
 from .constants import *
 import yaml
 import logging
+import time
 
 # Get an instance of a logger
 #logger = logging.getLogger(__name__)
@@ -366,6 +367,8 @@ async def call_api_change_model(url, data):
 @api_view(['POST'])
 def convert_data_and_train_and_replace_model(request):
     try:
+        start_time = time.time()
+
         headers = {
             "Content-Type":"application/json",
         }
@@ -373,19 +376,27 @@ def convert_data_and_train_and_replace_model(request):
         #print('request.data 2: ',request.data)
         data = request.data.get('data')
         #print('data: ',data)
+        
+        convert_start = time.time()
+
         convert_data = requests.post(
             inference_url + '/api/v1/convertdata/', 
             data=json.dumps(data, ensure_ascii=False).encode('utf-8'),
             headers=headers)
         
-        if (convert_data and 200 <= convert_data.status_code and convert_data.status_code < 300):
+        convert_end = time.time()
 
+        if (convert_data and 200 <= convert_data.status_code and convert_data.status_code < 300):
+            train_start = time.time()
             train = requests.get(inference_url + '/api/v1/models/train-model/')
+            train_end = time.time()
 
             if (train and 200 <= train.status_code and train.status_code < 300):
-
+               
+                replace_start = time.time()
                 replace_model = requests.get(inference_url + '/api/v1/models/replace-model-of-rasa/')
-
+                replace_end = time.time()
+                
                 if (replace_model and 200 <= replace_model.status_code and replace_model.status_code < 300):
                     msg = 'convert data, train and replace model success'
                     status = 200
@@ -399,8 +410,24 @@ def convert_data_and_train_and_replace_model(request):
         else:
             msg = 'convert data failed'
             status = 400
+
+        end_time = time.time()
+
+        if (status == 200):
+            time_diff_convert = round((convert_end - convert_start), 3)
+            time_diff_train = round((train_end - train_start), 3)
+            time_diff_replace_model = round((replace_end - replace_start), 3)
+            time_diff_total = round((end_time - start_time), 3)
+            print('time_diff_convert: ',time_diff_convert)
+            execution_times = {
+                'convert_data_time': f'{time_diff_convert} s',
+                'train_time': f'{time_diff_train} s',
+                'replace_model_time': f'{time_diff_replace_model} s',
+                'total_time': f'{time_diff_total} s'
+            }
+            return Response({'message': msg, 'execution_times': execution_times}, status=status)
         
-        return Response({'message': msg}, status=status)
+        return Response({'message': msg }, status=status)
 
     except Exception as e:
         print(e)

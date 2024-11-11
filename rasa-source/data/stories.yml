@@ -45,3 +45,7 @@ stories:
   steps:
   - intent: clinic
   - action: utter_clinic
+- story: story_booking
+  steps:
+  - intent: booking
+  - action: utter_booking
