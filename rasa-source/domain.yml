@@ -13,7 +13,6 @@ intents:
   - ask_for_advice
   - ask_for_diet
   - inform_goal
-  - ask_for_food
   - ask_for_meal_plan
   - ask_for_meal_plan_1
   - ask_about_amaz

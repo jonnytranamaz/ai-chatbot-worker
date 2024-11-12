@@ -114,10 +114,6 @@ nlu:
   examples: |
     - Tôi muốn tăng cơ
 
-- intent: ask_for_food
-  examples: |
-    - Tôi muốn biết các thực phẩm cụ thể
-
 - intent: ask_for_meal_plan
   examples: |
     - Tôi muốn biết các thực phẩm cụ thể
