@@ -266,6 +266,11 @@ class ConvertData(APIView):
                 for response in response_list:
                     domain_file.write(f"  - text: \"{response['text']}\"\n")
 
+            # Append session_config to the end of the file
+            domain_file.write("\nsession_config:\n")
+            domain_file.write("    session_expiration_time: 60\n")
+            domain_file.write("    carry_over_slots_to_new_session: true\n")
+
             # domain_file.write("\nactions:\n")
             # for action in domain_data.get('actions', []):
             #     domain_file.write(f"  - {action}\n")
