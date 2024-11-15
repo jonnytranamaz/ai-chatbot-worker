@@ -1,0 +1,8 @@
+nlu:
+- intent: hospital
+  examples: |
+    - tôi cần tìm bệnh viện ở quận 7
+    - Tôi muốn khám ở bệnh viện quận 7
+    - ngồi code quá lâu, thức khuya chạy deadline, đít tôi đau nhói, tôi muốn tìm bệnh viện chữa bệnh trĩ.
+    - tôi cần tìm bệnh viện tâm thần
+    - tôi cần tìm bệnh viện chữa bệnh tự kỷ

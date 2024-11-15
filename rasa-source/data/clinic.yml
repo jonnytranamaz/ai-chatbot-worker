@@ -1,0 +1,8 @@
+nlu:
+- intent: clinic
+  examples: |
+    - tôi muốn tìm phòng khám online
+    - phòng khám
+    - có phòng khám nào ở gần đây không
+    - tôi đang mệt mỏi và tôi muốn tìm phòng khám ở quận 7
+    

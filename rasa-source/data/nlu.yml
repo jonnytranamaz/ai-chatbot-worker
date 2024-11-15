@@ -95,37 +95,77 @@ nlu:
     - I want to order food
     - What is 2 + 2?
     - Who's the US President?
-
-- intent: inform_symptom
-  examples: |
-    - Tôi thường bị đau cổ và vai sau khi làm việc nặng
-    - Tôi cảm thấy tay và chân hay tê cóng, đặc biệt vào buổi tối
-
-- intent: ask_for_advice
-  examples: |
-    - Liệu đây có phải triệu chứng của bệnh thoái hóa đốt sống cổ không?
-    - Tôi nên làm gì tiếp theo?
-
 - intent: ask_for_diet
   examples: |
     - Tôi đang tập thể hình và muốn biết nên ăn uống như thế nào
+    - Tôi đang bị trĩ và muốn biết cách ăn uống hợp lý
 
 - intent: inform_goal
   examples: |
     - Tôi muốn tăng cơ
+    - Tôi muốn giảm mỡ
+    - Tôi muốn giữ vóc dáng
 
 - intent: ask_for_meal_plan
   examples: |
     - Tôi muốn biết các thực phẩm cụ thể
-  
+    - Tôi muốn biết lịch ăn uống hàng ngày
+
 - intent: ask_for_meal_plan_1
   examples: |
     - Có
+    - Đúng
+    - Đúng vậy
+    - Vâng
 
 - intent: ask_about_amaz
   examples: |
     - Amaz là gì?
+    - Amaz là công ty gì?
+    - Amaz là công ty công nghệ?
+    - Amaz là công ty công nghệ chuyên về gì?
 
 - intent: ask_how_to_book
   examples: |
     - Làm thế nào để đặt lịch trên ứng dụng Amaz?
+    - Làm thế nào để đặt lịch khám trên ứng dụng Amaz?
+    - Làm thế nào để đặt lịch khám bệnh trên ứng dụng Amaz?
+    - Làm thế nào để sử dụng ứng dụng Amaz?
+
+- intent: ask_symptoms
+  examples: |
+    - Tôi đang cảm thấy không khỏe. Tôi bị ho và sốt.
+    - Tôi bắt đầu ho khoảng ba ngày trước, và hôm nay tôi bị sốt. Nhiệt độ của tôi khoảng 38 độ C.
+    - Tôi cảm thấy mệt mỏi và không muốn ăn uống.
+    - Tôi bị đau đầu và mệt mỏi.
+    - Tôi bị trĩ và cảm thấy đau rát.
+    - Tôi bị sùi mào gà
+    - Tôi bị viêm họng
+
+- intent: provide_symptoms
+  examples: |
+    - Tôi bắt đầu ho khoảng ba ngày trước, và hôm nay tôi bị sốt. Nhiệt độ của tôi khoảng 38 độ C.
+    - Tôi đau đầu, nhức tay.
+    - Tôi tê tay, mỏi vai
+
+- intent: provide_symptoms_1
+  examples: |
+    - Tôi có cảm thấy đau họng một chút, nhưng không khó thở.
+    - Tôi thấy hơi đau họng, nghẹt mũi nặng, sốt cao
+
+- intent: thank_you
+  examples: |
+    - Cảm ơn bạn! Tôi sẽ chú ý đến triệu chứng của mình.
+    - Cảm ơn bạn! Tôi sẽ thử thêm các biện pháp chăm sóc sức khỏe.
+    - Cảm ơn bạn! Tôi sẽ thử thêm các biện pháp chăm sóc sức khỏe và ăn uống hợp lý.
+    - Cảm ơn bạn! Tôi sẽ thử thêm các biện pháp chăm sóc sức khỏe và ăn uống hợp lý để cải thiện tình hình sức khỏe của mình.
+
+- intent: ask_about_ceo
+  examples: |
+    - CEO của Amaz là ai?
+    - Ai là CEO của Amaz?
+    - Ai là người sáng lập Amaz?
+    - Người sáng lập Amaz là ai?
+    - Người sáng lập Amaz là ai và có kinh nghiệm gì?
+    - Ông Đàm Văn Thiện là ai?
+    - Ông Thiện là ai?

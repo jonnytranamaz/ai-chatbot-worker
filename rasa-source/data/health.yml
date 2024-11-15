@@ -1,0 +1,6 @@
+nlu:
+- intent: health
+  examples: |
+    - có những thực phẩm nào tốt cho sức khỏe không
+    - Bệnh nhân cao huyết áp có nên ăn muối không?
+    - Bệnh nhân ung thư có nên ăn thực phẩm tươi sống không?

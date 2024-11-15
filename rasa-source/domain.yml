@@ -1,81 +1,72 @@
 version: "3.1"
 
 intents:
-  - bot_challenge
-  - mood_unhappy
-  - out_of_scope
-  - greet
-  - goodbye
-  - mood_great
-  - deny
   - affirm
-  - inform_symptom
-  - ask_for_advice
-  - ask_for_diet
-  - inform_goal
-  - ask_for_meal_plan
-  - ask_for_meal_plan_1
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_symptom
+  - out_of_scope
+  - symptom
   - ask_about_amaz
+  - provide_symptoms_1
+  - thank_you
+  - ask_for_meal_plan
+  - greet
   - ask_how_to_book
+  - inform_goal
+  - provide_symptoms
+  - goodbye
+  - ask_for_meal_plan_1
+  - ask_symptoms
+  - ask_for_diet
+  - ask_about_ceo
 
 responses:
-  utter_greet:
-  - text: "Hey! How are you?"
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
   utter_did_that_help:
   - text: "Did that help you?"
   utter_happy:
   - text: "Great, carry on!"
-  utter_goodbye:
-  - text: "Bye"
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-  utter_symptom:
-  - text: "I recognize your symptom"
-  - text: "OK, tôi sẽ giúp bạn, bạn bị đau gì"
   utter_out_of_scope:
-  - text: "Sorry, I can't handle that request."
+  - text: Sorry, I can't handle that request.
   utter_please_rephrase:
-  - text: "Sorry, I can't handle that request."
-  utter_booking:
-  - text: "Hết cứu"
-  utter_symptom_advice:
-    - text: "Đúng vậy, triệu chứng của bạn có thể liên quan đến bệnh thoái hóa đốt sống cổ. Bạn còn gặp bất kỳ vấn đề sức khỏe hay triệu chứng khác không?"
-  utter_tingling_advice:
-    - text: "Cảm ơn bạn đã chia sẻ thông tin. Để chắc chắn, bạn nên thăm khám và tư vấn với bác sĩ chuyên khoa. Bạn có thể sử dụng ứng dụng Amaz để tư vấn và đặt lịch online."
+  - text: Sorry, I can't handle that request. #I'm sorry, I didn't quite understand that because of NLU fallback. Could you rephrase?
+  utter_return_clinic_location:
+  - text: "The clinic is located at district 7, Ho Chi Minh City"
+  utter_iamabot:
+  - text: "I am a bot designed to assist you."
+  utter_greet:
+  - text: "Xin chào. Tôi là chatbot Amaz! Tôi có thể giúp gì cho bạn?"
+  utter_goodbye:
+  - text: "Goodbye."
   utter_ask_for_diet:
-    - text: "Bạn cần cung cấp thông tin về mục tiêu tập luyện của mình (tăng cơ, giảm mỡ) và thói quen ăn uống hiện tại."
-    
-  utter_goal_response:
-    - text: "Để tăng cơ hiệu quả, bạn nên tăng lượng protein trong khẩu phần ăn và duy trì các bữa phụ giàu dinh dưỡng. Bạn có muốn tôi đề xuất một kế hoạch ăn uống chi tiết cho việc tập luyện không?"
-    
-  utter_food_suggestion:
-    - text: "Tốt! Bạn nên bổ sung thực phẩm như thịt nạc, trứng, đậu hũ, và các loại hạt. Ngoài ra, bạn cần ăn đủ bữa để cung cấp năng lượng cho cơ thể. Bạn có cần tôi giúp lập lịch ăn uống không?"
-    
-  utter_meal_plan:
-    - text: "Lịch ăn uống hàng ngày như sau ..."
-  
+  - text: "Bạn cần cung cấp thông tin về mục tiêu tập luyện của mình (tăng cơ, giảm mỡ) và thói quen ăn uống hiện tại."
   utter_inform_goal:
-    - text: "Để tăng cơ hiệu quả, bạn nên tăng lượng protein trong khẩu phần ăn và duy trì các bữa phụ giàu dinh dưỡng. Bạn có muốn tôi đề xuất một kế hoạch ăn uống chi tiết cho việc tập luyện không?"
-  
+  - text: "Để tăng cơ hiệu quả, bạn nên tăng lượng protein trong khẩu phần ăn và duy trì các bữa phụ giàu dinh dưỡng. Bạn có muốn tôi đề xuất một kế hoạch ăn uống chi tiết cho việc tập luyện không?"
   utter_ask_for_meal_plan:
   - text: "Tốt! Bạn nên bổ sung thực phẩm như thịt nạc, trứng, đậu hũ, và các loại hạt. Ngoài ra, bạn cần ăn đủ bữa để cung cấp năng lượng cho cơ thể. Bạn có cần tôi giúp lập lịch ăn uống không?"
-  
-  utter_for_meal_plan:
-    - text: "Tốt! Bạn nên bổ sung thực phẩm như thịt nạc, trứng, đậu hũ, và các loại hạt. Ngoài ra, bạn cần ăn đủ bữa để cung cấp năng lượng cho cơ thể. Bạn có cần tôi giúp lập lịch ăn uống không?"
-  
   utter_ask_for_meal_plan_1:
-    - text: "Lịch ăn uống hàng ngày như sau ..."
-
-  utter_for_meal_plan_1:
-    - text: "Lịch ăn uống hàng ngày như sau ..."
-
+  - text: "Lịch ăn uống hàng ngày như sau ..."
   utter_ask_about_amaz:
   - text: "Amaz là một công ty công nghệ."
-    
   utter_how_to_book:
-    - text: "Bạn hãy tải app và đặt lịch."
+  - text: "Bạn hãy tải app Amaz Care và đặt lịch. Link tải app: https://play.google.com/store/apps/details?id=com.amazcare.user&hl=en_US"
+  utter_ask_symptoms:
+  - text: "Tôi rất tiếc khi nghe bạn không khỏe. Bạn có thể cho tôi biết thêm về triệu chứng của bạn không? Ho của bạn có kéo dài bao lâu rồi?"
+  utter_provide_symptoms:
+  - text: "Cảm ơn bạn đã chia sẻ. Ngoài ho và sốt, bạn có cảm thấy đau họng, khó thở, hay có triệu chứng nào khác không?"
+  utter_provide_symptoms_1:
+  - text: "Đó là thông tin hữu ích. Ho và sốt có thể do nhiều nguyên nhân khác nhau, như cảm cúm hoặc viêm họng. Tôi khuyên bạn nên nghỉ ngơi, uống nhiều nước, và có thể sử dụng thuốc hạ sốt nếu cần. Tuy nhiên, nếu triệu chứng không cải thiện sau vài ngày, bạn nên đi khám bác sĩ."
+  utter_thank_you:
+  - text: "Không có gì. Nếu bạn có câu hỏi nào khác, hãy hỏi tôi nhé! Chúc bạn mau khỏe!"
+  utter_symptom:
+  - text: "Tôi rất tiếc khi nghe điều đó. Bạn cần nên đến bác sĩ.Bạn muốn khám ở đâu?"
+  utter_about_amaz_ceo:
+  - text: "Nhà sáng lập, Chủ tịch & Tổng giám đốc điều hành tại WATA Software | WATA Corp | Amaz Tech - Cung cấp dịch vụ gia công phát triển phần mềm, tư vấn gia công phần mềm ra nước ngoài, tư vấn chuyển đổi số, tư vấn và đầu tư khởi nghiệp."
 
 session_config:
   session_expiration_time: 60

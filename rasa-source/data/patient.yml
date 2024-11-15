@@ -1,0 +1,8 @@
+nlu:
+- intent: patient
+  examples: |
+    - tôi cảm thấy đang đau đầu và tôi cần gặp bác sĩ
+    - tôi đánh giá dịch vụ của bạn
+    - Bác sĩ rất chuyên nghiệp và tận tâm với bệnh nhân.
+    - Các thủ tục tại bệnh viện được thực hiện rất nhanh chóng.
+    - Quá trình điều trị diễn ra suôn sẻ và hiệu quả.

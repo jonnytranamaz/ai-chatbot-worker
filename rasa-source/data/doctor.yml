@@ -1,0 +1,6 @@
+nlu:
+- intent: doctor
+  examples: |
+    - Tôi muốn tìm bác sĩ chữa bệnh trĩ
+    - Tôi muốn tìm bác sĩ chuyên khoa trĩ
+    - Tôi muốn tìm bác sĩ chuyên khoa trĩ ở quận 7

@@ -28,30 +28,34 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
-
-- story: user reports symptoms and asks for advice
+  
+- story: user greets
   steps:
     - intent: greet
     - action: utter_greet
-    - intent: inform_symptom
-    - action: utter_symptom_advice
-    - intent: inform_symptom
-    - action: utter_tingling_advice
-    - intent: goodbye
-    - action: utter_goodbye
 
-- story: user wants diet advice for bodybuilding
+- story: user asks for diet
   steps:
-    - intent: greet
-    - action: utter_greet
     - intent: ask_for_diet
     - action: utter_ask_for_diet
+
+- story: user informs goal
+  steps:
     - intent: inform_goal
     - action: utter_inform_goal
+
+- story: user asks for meal plan
+  steps:
     - intent: ask_for_meal_plan
     - action: utter_ask_for_meal_plan
+
+- story: user asks for specific meal plan
+  steps:
     - intent: ask_for_meal_plan_1
     - action: utter_ask_for_meal_plan_1
+
+- story: user says goodbye
+  steps:
     - intent: goodbye
     - action: utter_goodbye
 
@@ -65,3 +69,26 @@ stories:
     - intent: ask_how_to_book
     - action: utter_how_to_book
 
+- story: user asks about symptoms
+  steps:
+    - intent: ask_symptoms
+    - action: utter_ask_symptoms
+
+- story: user provides symptoms
+  steps:
+    - intent: provide_symptoms
+    - action: utter_provide_symptoms
+
+- story: user provides additional symptoms
+  steps:
+    - intent: provide_symptoms_1
+    - action: utter_provide_symptoms_1
+
+- story: user thanks
+  steps:
+    - intent: thank_you
+    - action: utter_thank_you
+- story: story_symptom
+  steps:
+  - intent: symptom
+  - action: utter_symptom

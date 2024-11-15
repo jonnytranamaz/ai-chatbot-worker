@@ -2,3 +2,10 @@ nlu:
 - intent: symptom
   examples: |
     - Tôi đang có biểu hiện đau đầu
+    - tôi đang có triệu chứng viêm họng
+    - Tôi đang có triệu chứng ho, sốt
+    - Bệnh nhiễm virus HIV có triệu chứng gì?
+    - Bệnh viêm tai giữa có triệu chứng gì?
+    - Bệnh trĩ có triệu chứng gì?
+    - Bệnh lậu có triệu chứng gì?
+    

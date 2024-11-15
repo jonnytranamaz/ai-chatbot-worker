@@ -1,0 +1,7 @@
+nlu:
+- intent: consultant
+  examples: |
+    - Bảo hiểm y tế có áp dụng cho các dịch vụ chăm sóc sức khỏe tâm thần không?
+    - Bệnh Alzheimer có thể do nguyên nhân nào?
+    - Bệnh chứng rối loạn ăn uống có thể dẫn đến điều gì?
+    
